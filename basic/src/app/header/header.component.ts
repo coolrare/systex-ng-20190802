@@ -11,6 +11,8 @@ export class HeaderComponent implements OnInit {
   headerClass = 'pull-left';
   test = 'Mike';
   counter = 0;
+  isHighlight = false;
+  fontSize = 12;
 
   constructor() {}
 
@@ -18,6 +20,8 @@ export class HeaderComponent implements OnInit {
 
   hello() {
     this.counter++;
+    this.fontSize += 2;
     console.log('test');
+    this.isHighlight = !this.isHighlight;
   }
 }

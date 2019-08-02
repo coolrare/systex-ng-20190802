@@ -29,7 +29,17 @@
 
       <div [class]="headerClass">
         <h1><a href="http://blog.miniasp.com/">{{ title }} {{ counter }}</a></h1>
-        <h3 [innerHTML]="subtitle" [attr.test]="test"></h3>
+        <!-- <h3 [innerHTML]="subtitle" [attr.test]="test" [ngClass]="{ highlight: isHighlight }"></h3> -->
+        <!-- <h3 [innerHTML]="subtitle"
+          [attr.test]="test"
+          [class.highlight]="isHighlight"
+          [ngStyle]="{ 'font-size.px': fontSize }"
+        ></h3> -->
+        <h3
+          [innerHTML]="subtitle"
+          [attr.test]="test"
+          [class.highlight]="isHighlight"
+          [style.font-size.px]="fontSize"></h3>
       </div>
 
       <div id="social-icons" class="pull-right social-icon">

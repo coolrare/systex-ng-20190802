@@ -4,6 +4,7 @@
       <!-- <input type="text" [value]="keyword" (change)="keywordChange($event)" placeholder="請輸入搜尋關鍵字" accesskey="s"> -->
       <!-- <input type="text" [value]="keyword" (change)="keyword = $event.target.value" placeholder="請輸入搜尋關鍵字" accesskey="s"> -->
       <input type="text"
+        #input
         [(ngModel)]="keyword"
         [ngModel]="keyword"
         (ngModelChange)="keyword = $event"
