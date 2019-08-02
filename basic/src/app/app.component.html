@@ -10,7 +10,7 @@
       <div id="ctl00_cphBody_PostList1_posts" class="posts">
 
         <!-- <article class="post" id="post0" *ngFor="let article of articles; let index = index; let first = first; let last = last; let odd = odd; let even = even"> -->
-        <ng-container *ngFor="let article of articles; let first = first">
+        <!-- <ng-container *ngFor="let article of articles; let first = first">
           <article class="post" id="post0" *ngIf="!first; else firstArticle">
             <header class="post-header">
               <h2 class="post-title">
@@ -32,8 +32,8 @@
           <ng-template #firstArticle>
               <article class="post">first</article>
           </ng-template>
-        </ng-container>
-
+        </ng-container> -->
+        <app-articles [articles]="articles | filterArticles:keyword "></app-articles>
         <!-- Article START-->
         <article class="post" id="post0">
           <header class="post-header">
@@ -125,7 +125,7 @@
       <div id="widgetzone_be_WIDGET_ZONE" class="widgetzone">
 
         <!-- Search START-->
-        <app-search-box #searchBox></app-search-box>
+        <app-search-box #searchBox (searchChange)="doSearch($event)"></app-search-box>
         <!-- Search END -->
 
         <!-- Calendar START -->

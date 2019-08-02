@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-search-box',
@@ -8,7 +8,9 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 export class SearchBoxComponent implements OnInit {
   keyword = 'test';
 
-  @ViewChild('input', {static: true}) searchInput: ElementRef;
+  @ViewChild('input', { static: true }) searchInput: ElementRef;
+
+  @Output() searchChange = new EventEmitter();
 
   constructor() {}
 
@@ -18,5 +20,10 @@ export class SearchBoxComponent implements OnInit {
 
   keywordChange(event: Event) {
     this.keyword = (event.target as HTMLInputElement).value;
+  }
+
+  search() {
+    console.log('test');
+    this.searchChange.emit(this.keyword);
   }
 }

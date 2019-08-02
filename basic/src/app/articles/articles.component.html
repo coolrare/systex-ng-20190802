@@ -1,0 +1,23 @@
+<ng-container *ngFor="let article of articles; let first = first">
+    <article class="post" id="post0" *ngIf="!first; else firstArticle">
+      <header class="post-header">
+        <h2 class="post-title">
+          <a href="http://blog.miniasp.com/post/2016/04/30/Visual-Studio-Code-from-Command-Prompt-notes.aspx">從命令提示字元中開啟
+            {{ article.title }}</a>
+        </h2>
+        <div class="post-info clearfix">
+          <span class="post-date"><i class="glyphicon glyphicon-calendar"></i>{{ article.date | date:'yyyy-mm-dd' }}</span>
+          <span class="post-author"><i class="glyphicon glyphicon-user"></i><a
+              href="http://blog.miniasp.com/author/will.aspx">Will 保哥</a></span>
+          <span class="post-category"><i class="glyphicon glyphicon-folder-close"></i><a
+              href="http://blog.miniasp.com/category/Visual-Studio.aspx">Visual Studio</a></span>
+        </div>
+      </header>
+      <section class="post-body text">
+        {{ article.summary }}
+      </section>
+    </article>
+    <ng-template #firstArticle>
+        <article class="post">first</article>
+    </ng-template>
+  </ng-container>
