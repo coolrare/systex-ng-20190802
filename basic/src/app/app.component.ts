@@ -13,7 +13,8 @@ export class AppComponent implements OnInit {
   api = environment.apiUrl;
   keyword = '';
 
-  articles = this.articleService.articles;
+  // articles = this.articleService.articles;
+  articles: Article[] = [];
 
   @ViewChild('searchBox', { static: true }) searchBox: SearchBoxComponent;
 
@@ -21,7 +22,16 @@ export class AppComponent implements OnInit {
 
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.articleService.queryArticle().subscribe(data => {
+      console.log(data);
+      this.articles = data.articles;
+    });
+
+    this.articleService.queryArticleV2().subscribe(data => {
+      this.articles = data;
+    });
+  }
 
   doSearch(keyword: string) {
     this.keyword = keyword;

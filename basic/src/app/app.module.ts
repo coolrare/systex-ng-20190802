@@ -7,6 +7,7 @@ import { SearchBoxComponent } from './search-box/search-box.component';
 import { FormsModule } from '@angular/forms';
 import { ArticlesComponent } from './articles/articles.component';
 import { FilterArticlesPipe } from './filter-articles.pipe';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { FilterArticlesPipe } from './filter-articles.pipe';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -8,3 +8,7 @@ export interface Article {
   'category-link': string;
   summary: string;
 }
+
+export interface ArticleApi {
+  articles: Article[];
+}

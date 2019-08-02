@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Article } from './article';
+import { Article, ArticleApi } from './article';
+import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -74,7 +76,15 @@ export class ArticleService {
     }
   ];
 
-  constructor() {}
+  constructor(private httpClient: HttpClient) {}
+
+  queryArticle() {
+    return this.httpClient.get<ArticleApi>('http://localhost:4200/assets/db.json');
+  }
+
+  queryArticleV2() {
+    return this.httpClient.get<ArticleApi>('http://localhost:4200/assets/db.json').pipe(map(data => data.articles));
+  }
 
   searchArticles(articles: Article[], keyword: string) {
     return articles.filter(article => article.title.indexOf(keyword) !== -1);
