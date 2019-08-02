@@ -1,3 +1,9 @@
+```
+ng build -> ng run [project]:[architect]:[config] -> ng run basic:build
+ng build --prod -> ng run basic:build:production
+ng run basic:build:stage
+```
+
 # Basic
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.1.2.
