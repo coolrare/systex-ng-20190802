@@ -11,6 +11,8 @@ import { TablesComponent } from './tables/tables.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ColorsComponent } from './colors/colors.component';
 import { BordersComponent } from './borders/borders.component';
+import { UtilitiesComponent } from './utilities/utilities.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,11 +24,13 @@ import { BordersComponent } from './borders/borders.component';
     TablesComponent,
     NotFoundComponent,
     ColorsComponent,
-    BordersComponent
+    BordersComponent,
+    UtilitiesComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

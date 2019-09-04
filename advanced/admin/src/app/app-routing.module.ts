@@ -8,6 +8,7 @@ import { ChartsComponent } from './charts/charts.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ColorsComponent } from './colors/colors.component';
 import { BordersComponent } from './borders/borders.component';
+import { UtilitiesComponent } from './utilities/utilities.component';
 
 const routes: Routes = [
   {
@@ -31,12 +32,22 @@ const routes: Routes = [
     path: 'charts',
     component: ChartsComponent
   },
+  // {
+  //   path: 'tables',
+  //   redirectTo: 'dashboard',
+  //   pathMatch: 'full',
+  // },
   {
     path: 'tables',
     component: TablesComponent
   },
   {
+    path: 'tables/:page',
+    component: TablesComponent
+  },
+  {
     path: 'utilities',
+    component: UtilitiesComponent,
     children: [
       {
         path: 'colors',
