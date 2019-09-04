@@ -59,4 +59,13 @@ https://docs.emmet.io/abbreviations/syntax/
 
 ## 手動延遲載入
 
-https://blog.kevinyang.net/2017/11/08/manual-lazy-loading/
+- [Angular 7 的方法](https://blog.kevinyang.net/2017/11/08/manual-lazy-loading/)
+- [Angular 8 的方法](https://wellwind.idv.tw/blog/2019/06/04/angular-8-dynamic-load-module/)
+- [systemjs](https://github.com/systemjs/systemjs)
+- [Dynamic import](https://v8.dev/features/dynamic-import)
+
+## 預先載入套件
+
+- [ngx-quicklink](https://github.com/mgechev/ngx-quicklink)
+- [guess.js](https://github.com/guess-js/guess)
+- [Angular Meetup #4 分享](https://www.facebook.com/groups/augularjs.tw/permalink/2661416317202055/)
