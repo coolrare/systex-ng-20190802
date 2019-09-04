@@ -83,7 +83,31 @@ export class ArticleService {
   }
 
   queryArticleV2() {
-    return this.httpClient.get<ArticleApi>('http://localhost:4200/assets/db.json').pipe(map(data => data.articles));
+    return this.httpClient
+      .get<ArticleApi>('http://localhost:4200/assets/db.json')
+      .pipe(
+        map(data => data.articles)
+      );
+  }
+
+  queryArticleA() {
+    return this.httpClient.get<ArticleApi>('http://localhost:4200/assets/db.json');
+  }
+
+  queryArticleB() {
+    return this.httpClient.get<ArticleApi>('http://localhost:4200/assets/db.json');
+  }
+
+  queryArticleC() {
+    return this.httpClient.get<ArticleApi>('http://localhost:4200/assets/db.json');
+  }
+
+  queryArticleD() {
+    return this.httpClient.get<ArticleApi>('http://localhost:4200/assets/db.json');
+  }
+
+  queryArticleE() {
+    return this.httpClient.get<ArticleApi>('http://localhost:4200/assets/db.json');
   }
 
   searchArticles(articles: Article[], keyword: string) {

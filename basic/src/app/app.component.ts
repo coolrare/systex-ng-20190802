@@ -3,6 +3,7 @@ import { environment } from '../environments/environment';
 import { SearchBoxComponent } from './search-box/search-box.component';
 import { ArticleService } from './article.service';
 import { Article } from './article';
+import { switchMap, map } from 'rxjs/operators';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -31,6 +32,20 @@ export class AppComponent implements OnInit {
     this.articleService.queryArticleV2().subscribe(data => {
       this.articles = data;
     });
+
+    const temp = this.articleService.queryArticleA().pipe(
+      map(data => data.articles),
+      switchMap(dataA => this.articleService.queryArticleB()),
+      switchMap(dataB => this.articleService.queryArticleB())
+    );
+
+    temp.pipe(
+      switchMap(dataC => this.articleService.queryArticleD())
+    ).subscribe();
+
+    temp.pipe(
+      switchMap(dataC => this.articleService.queryArticleE())
+    ).subscribe();
   }
 
   doSearch(keyword: string) {
