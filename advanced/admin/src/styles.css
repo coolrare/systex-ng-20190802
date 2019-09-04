@@ -3,3 +3,7 @@
 .active {
   background-color: darkblue;
 }
+
+/* .ng-invalid:not(form)  {
+  background: red;
+} */
