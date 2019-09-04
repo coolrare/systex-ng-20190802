@@ -10,60 +10,75 @@ import { ColorsComponent } from './colors/colors.component';
 import { BordersComponent } from './borders/borders.component';
 import { UtilitiesComponent } from './utilities/utilities.component';
 import { ButtonsComponent } from './buttons/buttons/buttons.component';
+import { LayoutComponent } from './layout/layout.component';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'page1',
-    pathMatch: 'full'
-  },
-  {
-    path: 'dashboard',
-    component: DashboardComponent
-  },
-  {
-    path: 'page1',
-    component: Page1Component
-  },
-  {
-    path: 'page2',
-    component: Page2Component
-  },
-  {
-    path: 'charts',
-    component: ChartsComponent
-  },
-  {
-    path: 'buttons',
-    loadChildren: () => import('./buttons/buttons.module').then(m => m.ButtonsModule)
-    // loadChildren: './buttons/buttons.module#ButtonModule'
-  },
-  // {
-  //   path: 'tables',
-  //   redirectTo: 'dashboard',
-  //   pathMatch: 'full',
-  // },
-  {
-    path: 'tables',
-    component: TablesComponent
-  },
-  {
-    path: 'tables/:page',
-    component: TablesComponent
-  },
-  {
-    path: 'utilities',
-    component: UtilitiesComponent,
+    component: LayoutComponent,
     children: [
       {
-        path: 'colors',
-        component: ColorsComponent
+        path: '',
+        redirectTo: 'page1',
+        pathMatch: 'full'
       },
       {
-        path: 'borders',
-        component: BordersComponent
+        path: 'dashboard',
+        component: DashboardComponent
+      },
+      {
+        path: 'page1',
+        component: Page1Component
+      },
+      {
+        path: 'page2',
+        component: Page2Component
+      },
+      {
+        path: 'charts',
+        component: ChartsComponent
+      },
+      {
+        path: 'buttons',
+        loadChildren: () => import('./buttons/buttons.module').then(m => m.ButtonsModule)
+        // loadChildren: './buttons/buttons.module#ButtonModule'
+      },
+      // {
+      //   path: 'tables',
+      //   redirectTo: 'dashboard',
+      //   pathMatch: 'full',
+      // },
+      {
+        path: 'tables',
+        component: TablesComponent
+      },
+      {
+        path: 'tables/:page',
+        component: TablesComponent
+      },
+      {
+        path: 'utilities',
+        component: UtilitiesComponent,
+        children: [
+          {
+            path: 'colors',
+            component: ColorsComponent
+          },
+          {
+            path: 'borders',
+            component: BordersComponent
+          }
+        ]
       }
     ]
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then(m => m.LoginModule)
+  },
+  {
+    path: 'register',
+    loadChildren: () => import('./register/register.module').then(m => m.RegisterModule)
   },
   {
     path: '**',
@@ -72,7 +87,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { enableTracing: true })],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

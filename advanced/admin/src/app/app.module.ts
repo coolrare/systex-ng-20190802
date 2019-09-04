@@ -13,6 +13,7 @@ import { ColorsComponent } from './colors/colors.component';
 import { BordersComponent } from './borders/borders.component';
 import { UtilitiesComponent } from './utilities/utilities.component';
 import { HttpClientModule } from '@angular/common/http';
+import { LayoutComponent } from './layout/layout.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { HttpClientModule } from '@angular/common/http';
     NotFoundComponent,
     ColorsComponent,
     BordersComponent,
-    UtilitiesComponent
+    UtilitiesComponent,
+    LayoutComponent
   ],
   imports: [
     BrowserModule,
