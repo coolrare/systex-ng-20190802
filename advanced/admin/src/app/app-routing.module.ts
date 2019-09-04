@@ -6,10 +6,17 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { TablesComponent } from './tables/tables.component';
 import { ChartsComponent } from './charts/charts.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { ColorsComponent } from './colors/colors.component';
+import { BordersComponent } from './borders/borders.component';
 
 const routes: Routes = [
   {
     path: '',
+    redirectTo: 'page1',
+    pathMatch: 'full'
+  },
+  {
+    path: 'dashboard',
     component: DashboardComponent
   },
   {
@@ -27,6 +34,19 @@ const routes: Routes = [
   {
     path: 'tables',
     component: TablesComponent
+  },
+  {
+    path: 'utilities',
+    children: [
+      {
+        path: 'colors',
+        component: ColorsComponent
+      },
+      {
+        path: 'borders',
+        component: BordersComponent
+      }
+    ]
   },
   {
     path: '**',
