@@ -9,6 +9,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { ColorsComponent } from './colors/colors.component';
 import { BordersComponent } from './borders/borders.component';
 import { UtilitiesComponent } from './utilities/utilities.component';
+import { ButtonsComponent } from './buttons/buttons/buttons.component';
 
 const routes: Routes = [
   {
@@ -31,6 +32,11 @@ const routes: Routes = [
   {
     path: 'charts',
     component: ChartsComponent
+  },
+  {
+    path: 'buttons',
+    loadChildren: () => import('./buttons/buttons.module').then(m => m.ButtonsModule)
+    // loadChildren: './buttons/buttons.module#ButtonModule'
   },
   // {
   //   path: 'tables',
