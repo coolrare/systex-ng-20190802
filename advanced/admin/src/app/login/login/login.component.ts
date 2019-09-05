@@ -9,6 +9,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class LoginComponent implements OnInit {
   @ViewChild('emailInput', { static: true }) emailInput: NgModel;
+  @ViewChild('form', { static: true}) form: NgForm;
 
   email = 'test';
 

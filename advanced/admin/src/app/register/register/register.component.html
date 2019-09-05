@@ -10,20 +10,40 @@
             <div class="text-center">
               <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
             </div>
-            <form class="user">
-              <div class="form-group row">
+            <div class="user" [formGroup]="form">
+
+              <div class="col-sm-6 mb-3 mb-sm-0">
+                <input *ngIf="true" type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="Age"
+                  disabled [value]="form.get('email').value">
+
+
+                <input *ngIf="false" type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="Age"
+                formControlName="email">
+                <!-- <div class="">{{ form.get('email').value }}</div> -->
+
+                <div *ngIf="form.get('age').invalid">
+                  <pre>{{ form.get('age').errors | json }}</pre>
+                </div>
+              </div>
+
+              <div class="form-group row" formGroupName="user">
                 <div class="col-sm-6 mb-3 mb-sm-0">
                   <input type="text" class="form-control form-control-user" id="exampleFirstName"
-                    placeholder="First Name">
+                    placeholder="First Name" formControlName="firstName">
+
+
+                  <div *ngIf="firstNameControl.invalid">
+                    <pre>{{ form.get('user.firstName').errors | json }}</pre>
+                  </div>
                 </div>
                 <div class="col-sm-6">
-                  <input type="text" class="form-control form-control-user" id="exampleLastName"
-                    placeholder="Last Name">
+                  <input type="text" class="form-control form-control-user" id="exampleLastName" placeholder="Last Name"
+                    formControlName="lastName">
                 </div>
               </div>
               <div class="form-group">
                 <input type="email" class="form-control form-control-user" id="exampleInputEmail"
-                  placeholder="Email Address">
+                  placeholder="Email Address" formControlName="email">
               </div>
               <div class="form-group row">
                 <div class="col-sm-6 mb-3 mb-sm-0">
@@ -35,9 +55,20 @@
                     placeholder="Repeat Password">
                 </div>
               </div>
-              <a href="login.html" class="btn btn-primary btn-user btn-block">
+
+              <div class="form-group" formArrayName="interest">
+                <!-- <input *ngFor="let ctrl of interestArray.controls; let index = index"
+                   type="email" class="form-control form-control-user" id="exampleInputEmail"
+                   [formControlName]="index"> -->
+                <input *ngFor="let ctrl of interestArray.controls;" type="email" class="form-control form-control-user"
+                  id="exampleInputEmail" [formControl]="ctrl">
+
+                <button (click)="addInterest()">+</button>
+              </div>
+
+              <button (click)="register()" href="login.html" class="btn btn-primary btn-user btn-block">
                 Register Account
-              </a>
+              </button>
               <hr>
               <a href="index.html" class="btn btn-google btn-user btn-block">
                 <i class="fab fa-google fa-fw"></i> Register with Google
@@ -45,7 +76,7 @@
               <a href="index.html" class="btn btn-facebook btn-user btn-block">
                 <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
               </a>
-            </form>
+            </div>
             <hr>
             <div class="text-center">
               <a class="small" href="forgot-password.html">Forgot Password?</a>
